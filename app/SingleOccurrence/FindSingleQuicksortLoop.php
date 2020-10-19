@@ -13,22 +13,22 @@ class FindSingleQuicksortLoop {
     {
         $this->checkFindSingleInput($input);
         sort($input);
-        $length = count($input);
-        for ($i = 1; $i < $length; $i++) {
-            $temp_index = $i-1;
+        $inputLength = count($input);
+        for ($i = 1; $i < $inputLength; $i++) {
+            $tempIndex = $i-1;
             $hasValueOccuredMoreThanOnce = false;
     
-            while(is_numeric($input[$i]) && $input[$i] == $input[$temp_index]) {
+            while(is_numeric($input[$i]) && $input[$i] == $input[$tempIndex]) {
                 $hasValueOccuredMoreThanOnce = true;
                 unset($input[$i]);
                 $i++;
-                if($i >= $length){
-                    unset($input[$temp_index]);
+                if($i >= $inputLength){
+                    unset($input[$tempIndex]);
                     break;
                 }
             }
             if($hasValueOccuredMoreThanOnce){
-                unset($input[$temp_index]);
+                unset($input[$tempIndex]);
             }
         }
         

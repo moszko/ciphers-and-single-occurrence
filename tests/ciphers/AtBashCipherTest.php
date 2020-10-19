@@ -2,7 +2,8 @@
 
 class AtBashCipherTest extends \PHPUnit\Framework\TestCase
 {
-    public function testImplementsCiphersContract() {
+    public function testImplementsCiphersContract(): void
+    {
         $cipher = new App\Cipher\AtBashCipher;
         $this->assertTrue($cipher instanceof App\Cipher\CiphersContract);
     }
@@ -10,7 +11,8 @@ class AtBashCipherTest extends \PHPUnit\Framework\TestCase
     /**
      * @dataProvider encryptionDecryptionProvider
      */
-    public function testEncryptionIsWorking($input, $output) {
+    public function testEncryptionIsWorking($input, $output): void
+    {
         $cipher = new App\Cipher\AtBashCipher;
         $this->assertEquals($cipher->encrypt($input), $output);
     }
@@ -18,12 +20,14 @@ class AtBashCipherTest extends \PHPUnit\Framework\TestCase
      /**
      * @dataProvider encryptionDecryptionProvider
      */
-    public function testDecryptionIsWorking($input, $output) {
+    public function testDecryptionIsWorking($input, $output): void
+    {
         $cipher = new App\Cipher\AtBashCipher;
         $this->assertEquals($cipher->decrypt($input), $output);
     }
 
-    public function encryptionDecryptionProvider(): array {
+    public function encryptionDecryptionProvider(): array
+    {
         return [
             ["",""],
             ["a","z"],

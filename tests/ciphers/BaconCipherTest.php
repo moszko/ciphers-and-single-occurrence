@@ -29,7 +29,8 @@ class BaconCipherTest extends \PHPUnit\Framework\TestCase
     /**
      * @dataProvider wronglyEncryptedStringExceptionProvider
      */
-    public function testThrowsExceptionOnWronglyEncryptedInput($input) {
+    public function testThrowsExceptionOnWronglyEncryptedInput($input): void
+    {
         $this->expectException(App\Cipher\Exceptions\WronglyEncryptedStringException::class);
         $cipher = new App\Cipher\BaconCipher;
         $cipher->decrypt($input);
@@ -49,7 +50,8 @@ class BaconCipherTest extends \PHPUnit\Framework\TestCase
         ];
     }
 
-    public function decryptionProvider(): array {
+    public function decryptionProvider(): array
+    {
         return [
             ["",""],
             ["ababb","m"],
